@@ -1,12 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import {ref} from "vue";
 
 const name = ref("aaa") // 定义响应式变量 name，使用 ref 使其可以动态的检测变量的值的变化.....
 // const data = useFetch("/api/hello")
 
-const { data, status, error } = useFetch("/api/hello");
+const {data, status, error} = useFetch("/api/hello");
 
-console.log(data,11)
+console.log(data, 11)
 
 setTimeout(() => {
   name.value = "bbb"
@@ -18,6 +18,11 @@ console.log(name.value) // 输出 aaa , 在浏览器的控制台中可以看到�
 const test = () => {
   console.log("test")
 }
+
+// 全局变量
+const asdfa = useRuntimeConfig()
+console.log(asdfa.count)
+console.log(asdfa.public.baseUrl, 33)
 
 
 </script>
@@ -33,5 +38,20 @@ const test = () => {
     <p v-if="status === 'pending'">加载中...</p>
     <p v-else-if="error">加载失败: {{ error.message }}</p>
     <p v-else>{{ data?.message }}</p>
+
+    <br>
+    <h1>定义全局的 css</h1>
+    <br>
+    <h3>测试全局自定义 css</h3>
+
+    <br>
+    <p>element ui</p>
+    <el-button type="primary">主要按钮</el-button>
   </div>
 </template>
+
+<style scoped lang="scss">
+h3 {
+  color: $myColor;
+}
+</style>
