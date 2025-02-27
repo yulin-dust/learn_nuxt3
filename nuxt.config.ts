@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 
   // 运行时的全局变量
   runtimeConfig:{
-    count: 1, // 仅可以在服务端获取
+    count: "1", // 仅可以在服务端获取
 
     public: { // 可以在客户端获取，也可以在服务端获取
        baseUrl: "http://localhost:8080"

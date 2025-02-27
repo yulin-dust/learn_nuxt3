@@ -19,11 +19,21 @@ const test = () => {
   console.log("test")
 }
 
-// 全局变量
-const asdfa = useRuntimeConfig()
-console.log(asdfa.count)
-console.log(asdfa.public.baseUrl, 33)
 
+// 全局变量
+const runtimeConfig = useRuntimeConfig()
+
+
+// 判断是否在服务端
+if (import.meta.server) {
+  console.log(runtimeConfig.count)
+
+  console.log("服务端")
+} else {
+  console.log(runtimeConfig.public.baseUrl, 33)
+
+  console.log("客户端")
+}
 
 </script>
 
