@@ -2,6 +2,8 @@
 definePageMeta({
   path: "/about1/about1/about1",
 })
+
+
 </script>
 
 <template>
